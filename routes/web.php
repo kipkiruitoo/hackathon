@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 
 Route::group(['prefix' => 'admin'], function () {
@@ -21,6 +19,9 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::resource('/categories', 'CategoriesController');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::post('/submit', 'HomeController@aftercategories');

@@ -2,22 +2,29 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+    <div class="jumbotron">
+        <h1 class="display-4">Great Places to School</h1>
+        <p class="lead">Wlcome to great places to school</p>
+        <hr class="my-4">
+        <p>Please select all the categories you would like your school be nominated in</p>
+        <div class="input-group">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
         </div>
+        <form action="{{url('/submit')}}" method="POST">
+            @csrf
+            @foreach ($categories as $category)
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="options[]" value="{{$category->identifier}}"
+                    id="{{$category->id}}">
+                {{$category->name}}<br>
+            </div>
+            @endforeach
+
+
+            <button type="submit" class="btn btn-primary">Next</button>
+        </form>
+
+
+
     </div>
-</div>
-@endsection
+    @endsection

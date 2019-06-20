@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use jazmy\FormBuilder\Models\Form;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,7 +25,33 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
+
+
     {
-        return view('home');
+        $categories = Form::orderBy('id', 'desc')->paginate(10);
+
+        return view('home')->withCategories($categories);
+    }
+
+    public function aftercategories(Request $request){
+
+        $options = $request->options;
+
+               
+               
+      
+            
+
+            
+
+                  
+        
+
+        
+
+      
+
+      
+      return view('test')->with('options', $options);
     }
 }
