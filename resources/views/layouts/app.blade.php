@@ -61,6 +61,10 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    @if (Auth::user()->hasRole('admin') || Auth::user()->hasRole('verifier'))
+                                    <a href="{{url('/survey')}}" class="dropdown-item">Surveys</a>
+                                    @endif
+                                    <a href="{{url('/survey/my-submissions')}}" class="dropdown-item">My Submissions</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -74,7 +78,15 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="row">
+                <div class="col-md-2">
+                       {{--  {{ menu('survey')}}  --}}
+                </div>
+                <div class="col-md-10">
+                     @yield('content')
+                </div>
+            </div>
+           
         </main>
 
     </div>

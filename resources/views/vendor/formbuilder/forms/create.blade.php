@@ -76,8 +76,11 @@
                         <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea name="" id="" cols="5" rows="5" name="description"
-                                            class="form-control">Brief explanation of the Category</textarea>
+                                            <label for="description" class="col-form-label">
+                                                    Allow Submission Edit
+                                                </label>
+                                        <textarea required id="description" cols="5" rows="5" name="description"
+                                            class="form-control"></textarea>
                                     </div>
                                 </div>
                             </div>

@@ -14,6 +14,7 @@
                         </a>
                     </h5>
                 </div>
+                <button class="btn btn-sm btn-success">Export xls</button>
 
                 @if($submissions->count())
                     <div class="table-responsive">
@@ -26,6 +27,7 @@
                                         <th>{{ $header['label'] ?? title_case($header['name']) }}</th>
                                     @endforeach
                                     <th class="fifteen">Actions</th>
+                                    <th class="fifteen">Confirm data</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -55,6 +57,9 @@
                                                     <i class="fa fa-trash-o"></i> 
                                                 </button>
                                             </form>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="" class="form-control" id="">
                                         </td>
                                     </tr>
                                 @endforeach

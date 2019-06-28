@@ -1,4 +1,4 @@
-@extends(config('formbuilder.layout_file', 'layouts.app'))
+@extends(config('formbuilder.layout_file', 'layouts.iframes'))
 
 @prepend(config('formbuilder.layout_js_stack', 'scripts'))
 	<script type="text/javascript">

@@ -14,14 +14,18 @@
 
 
 
+Route::group(['prefix' => 'verifier'], function () {
+    Route::get('/', 'VerifierController@index')->name('verifier');
+});
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
-
 Route::resource('/categories', 'CategoriesController');
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'SchoolsController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/submit', 'HomeController@aftercategories');
